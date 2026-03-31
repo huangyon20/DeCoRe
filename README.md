@@ -14,22 +14,21 @@ NanoDISH consists of four parts: process the signal data, select reads by their 
 ### The dependent Python packages:
 - os
 - argparse
-- pandas
-- numpy
-- OneClassSVM in sklearn.svm
-- UMAP in sklearn.decomposition 
-- GaussianMixture in sklearn.mixture
-- DBSCAN in sklearn.cluster
-- mean in statistics
-
+- pandas >=2.0.3
+- numpy >=1.24.4
+- scikit-learn >=1.3.2
+- scipy >=1.510.1
+- seaborn >=0.13.0
+- guppy3 >=3.1.3
+The runtime environment of DeRoRE was packed into the file:(data/DeCoRE.env.yml)
 
 step 1: Dataprocessing.
 --------------------------------------------
 In this step, the fastq reads were mapped to reference genome using grphmap2 or minimap2 and the fast5 signals were aligned to the reference RNA using nanopolish. The erroneously called redundant signals in event file were collapsed into one with recalculating the mean value of Current_mean, Current_sdtv and the sum value of Dwell time. The output file is an event file with no redundant signals. The modified and unmodified group should be deal with separatly. 
 
 ```
-python dataprocessing.py  -r ref.fasta -q mod.fastq   -s mod_fast5   -d Mod   -n mod 
-python dataprocessing.py  -r ref.fasta -q unmod.fastq -s unmod_fast5 -d Unmod -n Unmod
+python dataprocessing.py  -r ref.fasta -q mod.fastq   -s mod_fast5   -d Mod   -n mod -i
+python dataprocessing.py  -r ref.fasta -q unmod.fastq -s unmod_fast5 -d Unmod -n Unmod -i
 
 ```
 
