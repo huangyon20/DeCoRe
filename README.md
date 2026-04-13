@@ -20,7 +20,7 @@ NanoDISH consists of four parts: process the signal data, select reads by their 
 - scipy >=1.510.1
 - seaborn >=0.13.0
 - guppy3 >=3.1.3
-The runtime environment of DeRoRE was packed into the file:(data/DeCoRE.env.yml)
+- The runtime environment of DeRoRE was packed into the file:(data/DeCoRE.env.yml)
 
 step 1: Dataprocessing.
 --------------------------------------------
